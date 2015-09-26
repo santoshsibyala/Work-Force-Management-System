@@ -1,0 +1,33 @@
+<div ng-controller="GuardScheduleController" ng-init="getGuardSchedule()">
+	         
+              
+      <div class="row"><h1 align="center">My Schedule</h1></br></br></div>
+             <div class="col-sm-12" align="center">
+                      <section class="panel">
+                         
+                          <table class="table">
+                            <thead>
+                              <tr>
+                                  
+                                 <th><i class=""></i> Date</th>
+                                 <th><i class=""></i> Building</th>
+                                 <th><i class=""></i> City</th>
+                                 
+                           
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr class="active" ng-repeat="data in schedule">
+                                <td class="active">*</td>
+                                <td  class="success">{{data.from | date:'yyyy-MM-dd'}} - {{data.to | date:'yyyy-MM-dd'}}</td>
+                                <td  class="warning">{{data.buildingname}}</td>
+                                <td class="danger">San Jose</td>
+                              </tr>                              
+                              
+                            </tbody>
+                          </table>
+                      </section>
+                  </div>
+
+        
+</div>

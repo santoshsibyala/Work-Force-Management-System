@@ -1,0 +1,103 @@
+<!-- <section id="main-content" ng-controller= "ClientDashboard">
+          <section class="wrapper">            
+              
+      <div class="row"><h1>Client Home Page {{clientname }}</h1></div>
+              
+            <div class="row"></div>
+  
+            <div class="row"></div>  
+
+          </section>
+        </section> -->
+
+        <!--main content start-->
+        <section id="main-content" ng-controller= "ClientDashboard" ng-init="getData()">
+
+
+            <div class="container" id="">
+
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+             
+           </div>
+
+           <div class="col-md-4">
+            
+            <p>{{clientProperties.fname}} {{clientProperties.lname}}</p>
+            <p>{{clientProperties.email}}</p>
+            
+              Last Login: 11:05 AM {{lastlogin}}
+
+            
+          </div>
+
+          
+         </div>
+         <br><br>
+      
+         <h3> 
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PROFILE</h3>
+        
+<div class="container" id="">
+            <div class="col-xs-8 col-sm-8 col-md8">
+                     
+                        <div class="well well-sm">
+                       
+                          <div class="row" style="margin-left: 0px;">
+          <!-- profile-widget -->
+        
+            <div class="col-sm-6">
+         <h3 style="color:red"> 
+           Personal Information
+           </h3> 
+            </div>
+            </div>
+          <div class="row" style="margin-left: 0px;">
+          <div class="col-sm-6">
+              <h4 style="color:"><span>First Name </span>: {{clientProperties.fname}} <h4>
+          </div>
+          <div class="col-sm-6">
+              <h4 style="color:"><span>Last Name </span>: {{clientProperties.lname}} </h4>
+          </div>
+          </div>
+          <div class="row" style="margin-left: 0px;">
+          <div class="col-sm-6">
+              <h4 style="color:"><span>Address</span>: {{clientProperties.address}}</h4>
+          </div> 
+          <div class="col-sm-6">
+
+              <h4 style="color:"><span>ZipCode </span>: {{clientProperties.zipcode}} </h4>          
+          </div>
+          </div> 
+          <div class="row" style="margin-left: 0px;">
+            <div class="col-sm-6">
+                <h4 style="color:"><span>City </span>:  {{clientProperties.city}}</h4>
+            </div>          
+            <div class="col-sm-6">
+                <h4 style="color:"><span>Mobile </span>: {{clientProperties.phonenumber}} </h4>
+            </div>
+          </div>
+          <div class="row" style="margin-left: 0px;">
+            <div class="col-sm-6">
+                <h4 style="color:"><span>Email </span>:{{clientProperties.email}} </h4>
+            </div>
+          </div>
+          <div class="row" style="margin-left: 0px;">
+            <div class="col-sm-6">
+
+  <button class="btn btn-primary" ng-click="modifyClientInfo()">Edit Information</button>
+            </div>          
+          </div>
+
+
+            
+</div>
+</div>
+</div>
+
+<!-- page end-->
+</section>
+
+
+      <!--main content end-->

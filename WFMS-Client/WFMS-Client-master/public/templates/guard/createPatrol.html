@@ -1,0 +1,98 @@
+<div ng-controller="CreatePatrolCtrl" ng-init="getGuardBuilding()" >
+           
+              
+      <div class="row">
+              <div class="col-md-12 portlets">
+              <div class="panel panel-info">
+                <div class="panel-heading">
+                  <div class="pull-left">   Patrol</div>
+                  <div class="widget-icons pull-right">
+                    <a href="#" class="wminimize"><i class=""></i></a> 
+                    <a href="#" class="wclose"><i class=""></i></a>
+                  </div>  
+                  <div class="clearfix"></div>
+                </div>
+                <div class="panel-body">
+                  <div class="padd">
+                    
+                      <div class="form quick-post">
+                                      <!-- Edit profile form (not working)-->
+                                      <form class="form-horizontal">
+                                          <!-- Title -->
+                                         <div class="form-group">
+                                            <label class="control-label col-lg-2" for="tags">Date</label>
+                                             <div class="col-lg-10">
+                                              <input type="date" class="form-control" id="tags" ng-model="patrol_date" value="patrol_date | date: 'yyyy-MM-dd'" required>
+                                            </div> 
+                                            </div>
+                                           
+                                          <!-- Content -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="content">Description</label>
+                                            <div class="col-lg-10">
+                                              <textarea class="form-control" id="content" ng-model="desc" required></textarea>
+                                            </div>
+                                          </div>  
+                                          
+                                          <div class="form-group">
+                                          <label class="control-label col-lg-2" for="tags">Time</label>
+                                          <div class="col-md-10">
+								           <div class="input-group bootstrap-timepicker">
+									       <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+									       <input type="time" ng-model="time" class="form-control"/ required>
+								          </div>
+							              </div>
+							              </div>
+							         
+                                                       
+                                          <!-- Cateogry -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="tags">Checkpoint</label>
+                                            <div class="col-lg-10">                               
+                                                <select class="form-control">
+                                                  <option value="">- Choose Cateogry -</option>
+                                                  <option value="1">Checkpoint 1</option>
+                                                  <option value="2">Checkpoint 2</option>
+                                                  <option value="3">Checkpoint 3</option>
+                                                  <option value="4">Checkpoint 4</option>
+                                                </select>  
+                                            </div>
+                                          </div>              
+                                          <!-- Tags -->
+                                          <div class="form-group">
+                                            <label class="control-label col-lg-2" for="tags">Building</label>
+                                            <div class="col-lg-10">
+                                            
+                                              <select class="form-control"  ng-model="idbuilding" >
+                                                  <option value="{{data.idbuilding}}" ng-repeat="data in guardSchedule | filter:building">{{data.buildingname}}</option>
+                   									
+                                                  
+                                                </select> 
+                                            </div>
+                                          </div>
+                                          
+                                          <!-- Buttons -->
+                                          <div class="form-group">
+                                             <!-- Buttons -->
+                                             <div class="col-lg-offset-2 col-lg-9">
+                                              <div class="pull-right text-danger">{{formError}}</div>
+                                                <button type="submit"  class="btn btn-default" ng-click="createPatrol()">Add Patrol Record</button>
+                                                <button type="submit" class="btn btn-default">Save Draft</button>
+                                                <button type="reset" class="btn btn-default">Reset</button>
+                                             </div>
+                                          </div>
+                                      </form>
+                                    </div>
+                  
+
+                  </div>
+                  <div class="widget-foot">
+                    <!-- Footer goes here -->
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+
+     
+</div>

@@ -1,0 +1,24 @@
+
+<style type="text/css">
+  .angular-google-map-container {  height: 500px; }
+</style>
+<!-- ng-init=" getBuilding()" -->
+
+<div ng-controller = "mapCntr" ng-init=" getBuilding()"> 
+
+	<section id="main-content">
+        <section class="wrapper">            
+            <div class="row"><h1>Maps</h1></div>
+            	<div id="map-canvas"></div>
+					<div class = "col-lg-8 col-xs-push-2" >
+						
+						
+						<ui-gmap-google-map center="map.center" zoom="map.zoom" draggable="true" options="options" bounds="map.bounds">
+        					<ui-gmap-markers models="randomMarkers" coords="'self'" icon="'icon'">
+        				</ui-gmap-markers>
+    					</ui-gmap-google-map>
+    					<!-- <google-maps center = "{latitude:  37.335847, longitude: -121.886403}"></google-maps> -->
+</div>
+</section>
+</section>
+</div>

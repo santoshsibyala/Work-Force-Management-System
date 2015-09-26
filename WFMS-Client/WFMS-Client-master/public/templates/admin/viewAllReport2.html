@@ -1,0 +1,176 @@
+<div ng-controller="ViewAllReportAdminCntr" ng-init="getData()">
+
+      <div class="row">
+         <div class="col-lg-12">
+            <h3 class="page-header"><i class=""></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Reports</h3>
+           
+         </div>
+      </div>
+     <div class="container" id="">
+            <div class="col-xs-8 col-sm-8 col-md8">
+                     
+                       
+                       
+                          <div class="row" style="margin-left: 0px;">
+         <div class="col-lg-12">
+            
+            <table  ng-table="tableParams" show-filter="true"  class="table table-striped table-advance table-hover">
+               <tr ng-repeat="report in $data">
+                  <td data-title="'Date'" sortable="'date'" filter="{ 'date': 'text' }">
+                     {{report.date| date : 'yyyy-MM-dd'}}
+                  </td>
+                  <td data-title="'Customer Name'" sortable="'clientfirst'" filter="{ 'clientfirst': 'text' }">
+                     {{report.clientfirst}} {{report.clientlast}}
+                  </td>
+                  <td data-title="'Building Name'" sortable="'buildingname'" filter="{ 'buildingname': 'text' }">
+                     {{report.buildingname}}
+                  </td>
+                  <td data-title="'Guard Name'" sortable="'guardfirst'" filter="{ 'guardfirst': 'text' }">
+                     {{report.guardfirst}} {{report.guardlast}}
+                  </td>
+                  <td>
+                     <div class="btn-group" ng-controller = "AdminController">
+                        <button class = "btn btn-default" type = "button" 
+                           ng-click = "viewReport(report)"> View </button>
+                     </div>
+                  </td>
+               </tr>
+            </table>
+         </div>
+      </div>
+      <p>{{error}}</p>
+      </div>
+      </div>
+      </div>
+      
+     
+         <div class="row">
+            <div class=" col-lg-4 span2 panel panel-primary " >
+               <div class="panel-heading">Property</div>
+               <div class="panel-body">{{buildingname}}</div>
+            </div>
+            <div class="span3 panel panel-primary col-lg-4">
+               <div class="panel-heading">Date</div>
+               <div class="panel-body">{{date | date : 'yyyy-MM-dd'}} </div>
+            </div>
+            <div class="span3 panel panel-primary col-lg-4">
+               <div class="panel-heading">Guard</div>
+               <div class="panel-body">{{guardfirst}}</div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Checklist</div>
+               <div class="panel-body">
+                  <table class="table">
+                     <thead>
+                        <tr>
+                           <th>Number</th>
+                           <th>Patrol Date</th>
+                           <th>Patrol Time</th>
+                           <th>Description</th>
+                           
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr ng-repeat="patrol in resultPatrol">
+                           <td>{{$index + 1}}</td>
+                           <td>{{patrol.date | date: 'yyyy-MM-dd'}}</td>
+                           <td>{{patrol.time}}</td>
+                           <td>{{patrol.description}}</td>
+                           
+                        </tr>
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <div class="row" ng-repeat = "alert in resultAlert">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Alert Number {{$index + 1}}</div>
+               <div class="panel-body">
+                        <ul>
+                           <li >Incident with descrption: {{alert.descrption}} took place on
+                              {{alert.date | date:'yyyy-MM-dd'}} reported at {{alert.time}}
+                           </li>
+                           <li>
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- <div class="row">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Trespassing Reports</div>
+               <div class="panel-body">
+                  <div ng-switch="trespassing.length">
+                     <div ng-switch-when="0">No trespassing reported for this
+                        report
+                     </div>
+                     <div ng-switch-default>
+                        <ul>
+                           <li ng-repeat="data in trespassing">Trespassing with
+                              severity {{data.severity}} reported at {{data.time}}
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Fire Reports</div>
+               <div class="panel-body">
+                  <div ng-switch="fire.length">
+                     <div ng-switch-when="0">No fire reported for this report</div>
+                     <div ng-switch-default>
+                        <ul>
+                           <li ng-repeat="data in fire">Fire with severity
+                              {{data.severity}} reported at {{data.time}}
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Parking Violations</div>
+               <div class="panel-body">
+                  <div ng-switch="parking.length">
+                     <div ng-switch-when="0">No parking violation reported for
+                        this report
+                     </div>
+                     <div ng-switch-default>
+                        <ul>
+                           <li ng-repeat="data in parking">Parking Violation with
+                              severity {{data.severity}} reported at {{data.time}}
+                           </li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+         <!-- <div class="row">
+            <div class="span8 panel panel-primary">
+               <div class="panel-heading">Patrols</div>
+               <div class="panel-body">
+                  <div ng-repeat="data in checkpointData">
+                     <div class="panel panel-default">
+                        <div class="panel-heading">{{data.time}} -
+                           {{data.checkpoint_name}} ({{data.coords}})
+                        </div>
+                        <div class="panel-body">{{data.description}}</div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+   </section>
+</section>
+</div>

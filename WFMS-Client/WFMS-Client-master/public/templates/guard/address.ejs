@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../favicon.ico">
+
+<title>Address</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script
+	src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="MyCtrl" ng-init="initiatlize()">
+    <div>Google Places Autocomplte integration in Angular</div>
+    <div>To Test, start typing the name of any Indian city</div>
+    <div>selection is: {{chosenPlace}}</div>
+    Pin Code {{zip}}
+    <div>details object is: {{chosenPlaceDetails}}</div>
+    <div><input ng-model="chosenPlace" details="chosenPlaceDetails" googleplace/></div>
+    City:<input type="text" name="cityname" ng-model="trader.cityname" value="cityname" ng-blur="paymentMethod(trader)" googleplace="" placeholder="New Delhi,India">
+</div>
+
+
+
+
+<script>
+var myApp = angular.module('myApp', []);
+ 
+ function geolocate() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var geolocation = new google.maps.LatLng(
+          position.coords.latitude, position.coords.longitude);
+      var circle = new google.maps.Circle({
+        center: geolocation,
+        radius: position.coords.accuracy
+      });
+      autocomplete.setBounds(circle.getBounds());
+    });
+  }
+}
+
+myApp.directive('googleplace', function() {
+    return {
+        require : 'ngModel',
+        link : function(scope, element, attrs, model) {
+            var options = {
+                types : [],
+            };
+            scope.gPlace = new google.maps.places.Autocomplete(element[0],
+                    options);
+ 
+            google.maps.event.addListener(scope.gPlace, 'place_changed',
+                    function() {
+                        scope.$apply(function() {
+                            model.$setViewValue(element.val());
+                        });
+                    });
+        }
+    };
+});
+
+function initialize() {
+  // Create the autocomplete object, restricting the search
+  // to geographical location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {HTMLInputElement} */(document.getElementById('autocomplete')),
+      { types: ['geocode'] });
+  // When the user selects an address from the dropdown,
+  // populate the address fields in the form.
+  google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    fillInAddress();
+  });
+}
+
+
+//myApp.factory('myService', function() {});
+ 
+function MyCtrl($scope) {
+    $scope.gPlace;
+    $scope.zip;
+}
+</script>
+</body>
+</html>

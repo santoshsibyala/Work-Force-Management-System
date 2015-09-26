@@ -1,0 +1,21 @@
+{
+  "name": "WFMS-Client-master",
+  "version": "1.0.0",
+  "description": "",
+  "main": "routes.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-validator": "^2.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,68 @@
+<div ng-init="getGuardsToAssign()">
+       <section class="panel panel-info">
+                          <header class="panel-heading">
+
+  <h3 >Assign Guards</h3>
+</header>          
+         <div class="panel-body" style="background-color:#C8C8C8 ">
+                  <div class="col-lg-12">
+                                             
+                          <table class="table table-striped">
+                           <tbody>
+                              <tr ng-if="(guardReqList | filter:criteria).length">
+                                 <th class="text-center">Select</th>
+                                 <th class="text-center">First Name</th>
+                                 <th class="text-center">Last Name</th>
+                                 <th class="text-center">Start Date</th>
+                                 <th class="text-center">End Date</th>
+                                 <th class="text-center">Phone Number</th>
+                                 <!-- <th class="text-center">Monthly Service Fees</th>
+                                 <th class="text-center">Start Date</th>
+                                 <th class="text-center">End Date</th>
+                                 <th class="text-center">Address</th>
+                                 <th class="text-center">City</th>
+                                 <th class="text-center">Zipcode</th>
+                                 <th class="text-center">Email</th>
+                                 <th class="text-center">Phone Number</th>
+                                 <th class="text-center">Action</th> -->
+                              </tr>
+                            <!--   <tr ng-if="!(guardReqList | filter:criteria).length">
+                                  <td>
+                                      No data available.                
+                                  </td>
+                              </tr> -->
+                              <tr ng-repeat="guard in guardReqList">
+                                 <td><input type="checkbox" ng-model="guard.isSelected" ng-change="selectGuard(guard)"/></td>
+                                 <td class="text-center">{{guard.fname}}</td>
+                                 <td class="text-center">{{guard.lname}}</td>
+                                 <td class="text-center">{{guard.start_date | date : 'mediumDate'}}</td>
+                                 <td class="text-center">{{guard.end_date | date : 'mediumDate'}}</td>
+                                 <td class="text-center">{{guard.phonenumber}}</td>
+                                 <!-- <td class="text-center">{{ billingInfo | sumByKey: 'Amount_Due'}}</td>
+                                 <td class="text-center">{{guard.start_date | date : 'mediumDate'}}</td>
+                                 <td class="text-center">{{guard.end_date | date : 'mediumDate'}}</td>
+                                 <td class="text-center">{{guard.address}}</td>
+                                 <td class="text-center">{{guard.city}}</td>
+                                 <td class="text-center">{{guard.zipcode}}</td>
+                                 <td class="text-center">{{guard.email}}</td>
+                                 <td class="text-center">{{guard.phonenumber}}</td>
+                                 <td class="text-center">
+                                  <div class="btn-group">
+                                      <a href="#">Edit</a>
+                                      <a href ng-click="deleteCall(this)">Delete</a>
+                                  </div>
+                                  </td> -->
+                              </tr>
+                              </tbody>
+                              </table>
+                           </div>
+              </div>
+
+</div>
+<div class="modal-footer">
+  <div class="pull-left text-danger">{{formError}}</div>
+  <button class="btn btn-warning" ng-click="okay()">Assign</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
+      
+      

@@ -1,0 +1,87 @@
+<div ng-controller="clientBillingInfo" ng-init = "getBillingInfo()">
+	
+
+			<div class="row">
+				<div class="col-lg-12">
+					<h3 class="page-header">
+						<i class=""></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Billing Information
+					</h3>
+					
+				</div>
+			</div>
+			<div class="container" id="">
+            <div class="col-xs-8 col-sm-8 col-md8">
+                     
+                        <div class="well well-sm">
+                       
+                          <div class="row" style="margin-left: 0px;">
+			<div class="row">
+				<div class="col-lg-12">
+				<div class = "text-center">
+					
+			<header class="panel-heading" > <Strong >Total Amount: {{ billingInfo | sumByKey: 'Amount_Due'}} </Strong></header>
+			
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			</div>
+			
+
+			
+			<div class="row">
+				<div class="col-lg-12">
+					<section class="panel">
+					
+					<div ng-repeat = "data in billingInfo">
+						
+						<header class="panel-heading" ng-model = "buildingName"> Building Name: {{data.buildingname}} </header>
+						<div class="panel-body">
+							<form class="form-horizontal "  >
+							
+
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Building Number</label>
+									<div class="col-lg-10">
+										<p class="form-control-static">{{data.idbuilding}}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Number of Gaurds Assigned</label>
+									<div class="col-lg-10">
+										<p class="form-control-static">{{data.no_of_guards}}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Release Date</label>
+									<div class="col-lg-10">
+										<p class="form-control-static">{{data.release_date | date:'yyyy/MM/dd'}}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Start Date</label>
+									<div class="col-lg-10">
+										<p class="form-control-static">{{data.start_date | date:'yyyy/MM/dd'}}</p>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-lg-2 control-label">Monthly Subscription</label>
+									<div class="col-lg-10">
+										<p class="form-control-static">{{data.Amount_Due}}</p>
+									</div>
+								</div>
+								
+															</form>
+						</div>
+						</div>
+					</section>
+				</div>
+			</div>
+			</div>
+</div>
+			
+			 Note: Monthly Subscrption is number of days the building is under surveillance * number of guards assigned to the building * our Rate($10/day)
+			
+
